@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>客户端A</title>
+    <script src="jquery.js"></script>
+    <script src="socket.js"></script>
+    <script>
+        var socket;
+        function connect(){
+            if (!socket){
+                socket = createScoket("123");
+            }
+        }
+        function sendMessage() {
+            var content = $("#content").val();
+            socket.send(content);
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="连接服务器" onclick="connect()"></br>
+<input type="text" id="content"> <input type="button" value="发送消息" onclick="sendMessage()">
+</body>
+</html>
